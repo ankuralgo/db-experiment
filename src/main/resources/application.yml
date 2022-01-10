@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: ${RDS_JDBC_URL:jdbc:postgresql://10.102.39.182:5432/applianceservice}
+    username: ${RDS_USERNAME:ankur}
+    password: ${RDS_PASSWORD:ankur}
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 150
+      minimum-idle: 5
+      schema: appliance
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        query:
+          plan_cache_max_size: 1
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: false
+        use_sql_comments: false
+        format_sql: false
