@@ -1,8 +1,17 @@
 spring:
+  data:
+    mongodb:
+      auto-index-creation: true
+      database: urlsolution
+      authentication-database: urlsolution
+      host: <ip>>
+      port: 27017
+      username: root
+      password: <pwd>
   datasource:
-    url: ${RDS_JDBC_URL:jdbc:postgresql://ip:5432/mydb}
+    url: ${RDS_JDBC_URL:jdbc:postgresql://<ip>>:5432/mydb}
     username: ${RDS_USERNAME:ankur}
-    password: ${RDS_PASSWORD:ankur}
+    password: ${RDS_PASSWORD:<pwd>>}
     platform: postgres
     driverClassName: org.postgresql.Driver
     hikari:
